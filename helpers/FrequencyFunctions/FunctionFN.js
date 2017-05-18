@@ -6,6 +6,7 @@ function main(words) {
     if(words!=''){
         var wordArr=words.split(' ');
         var groupedArr=group(wordArr);
+        groupedArr.sort((x,y)=>y.count-x.count);
         return groupedArr.map((w)=>format(w.word,w.count)).join('\r\n');
     }
     return '';

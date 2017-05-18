@@ -19,6 +19,11 @@ describe("Frequency Number",function(){
         var result=main('he he is');
         expect(result).toEqual('he 2\r\nis 1');
     });
+    it ("return 'is 2\r\nhe 1' when given 'he is is'",function () {
+        var result=main('he is is');
+        expect(result).toEqual('is 2\r\nhe 1');
+    });
+
 
 
 })
