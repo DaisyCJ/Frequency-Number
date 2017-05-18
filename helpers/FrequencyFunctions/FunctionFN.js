@@ -5,12 +5,26 @@
 function main(words) {
     if(words!=''){
         var wordArr=words.split(' ');
-        return wordArr.map((w)=>format(w)).join('\r\n');
+        var groupedArr=group(wordArr);
+        return groupedArr.map((w)=>format(w.word,w.count)).join('\r\n');
     }
     return '';
 }
 
-function format(w){
-    return w+' 1';
+function group(wordArr) {
+    return wordArr.reduce((array,word)=>{
+        var entry=array.find((e)=>e.word===word);
+        if(entry){
+            entry.count++;
+        }
+        else{
+            array.push({word:word,count:1});
+        }
+        return array;
+        },[]);
+}
+
+function format(word,count){
+    return word+' '+count;
 }
 module.exports=main;
