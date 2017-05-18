@@ -7,5 +7,8 @@ describe("Frequency Number",function(){
         var result=main('');
         expect(result).toEqual('');
     });
-
+    it ("return string given one word",function () {
+        var result=main('he');
+        expect(result).toEqual('he 1');
+    });
 })
